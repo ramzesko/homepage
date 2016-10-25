@@ -1,0 +1,255 @@
+<!DOCTYPE html>
+
+<html lang="en">
+
+<head>
+
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="">
+    <meta name="author" content="">
+
+    <title>Scrolling Nav - Start Bootstrap Template</title>
+
+    <!-- Bootstrap Core CSS -->
+    <link href="../static/css/bootstrap.min.css" rel="stylesheet">
+
+    <!-- Custom CSS -->
+    <link href="../static/css/scrolling-nav.css" rel="stylesheet">
+    <link href="../static/css/cv.css" rel="stylesheet">
+    <!-- jQuery -->
+    <script src="../static/js/jquery.js"></script>
+
+    <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+    <!--[if lt IE 9]>
+        <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+        <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+    <![endif]-->
+
+</head>
+
+<!-- The #page-top ID is part of the scrolling feature - the data-spy and data-target are part of the built-in Bootstrap scrollspy function -->
+
+<body id="page-top" data-spy="scroll" data-target=".navbar-fixed-top">
+
+    <!-- Navigation -->
+    <nav class="navbar navbar-default navbar-fixed-top" role="navigation">
+        <div class="container">
+            <div class="navbar-header page-scroll">
+                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-ex1-collapse">
+                    <span class="sr-only">Toggle navigation</span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+                <a class="navbar-brand page-scroll" href="#page-top">CV</a>
+            </div>
+
+            <!-- Collect the nav links, forms, and other content for toggling -->
+            <div class="collapse navbar-collapse navbar-ex1-collapse">
+                <ul class="nav navbar-nav">
+                    <!-- Hidden li included to remove active class from about link when scrolled up past about section -->
+                    <li class="hidden">
+                        <a class="page-scroll" href="#page-top"></a>
+                    </li>
+                    <li>
+                        <a class="page-scroll" href="#education">Wykształcenie</a>
+                    </li>
+                    <li>
+                        <a class="page-scroll" href="#experience">Doświadczenie</a>
+                    </li>
+                    <li>
+                        <a class="page-scroll" href="#skills">Umiejętności</a>
+                    </li>
+                    <li>
+                        <a class="page-scroll" href="#contact">Kontakt</a>
+                    </li>
+                </ul>
+            </div>
+            <!-- /.navbar-collapse -->
+        </div>
+        <!-- /.container -->
+    </nav>
+
+    <!-- Intro Section -->
+    <section id="intro" class="intro-section">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-12">
+                    <h1>Curriculum Vitae</h1>
+{#                    <p><strong>Usage Instructions:</strong> Make sure to include the <code>scrolling-nav.js</code>, <code>jquery.easing.min.js</code>, and <code>scrolling-nav.css</code> files. To make a link smooth scroll to another section on the page, give the link the <code>.page-scroll</code> class and set the link target to a corresponding ID on the page.</p>#}
+                    <div class="panel panel-default">
+                        <div class="panel-body">
+                            <div id="left">
+                                <table class="table">
+                                    <thead>
+                                    <h3>{{ resume.title }} {{ resume.firstname }} {{ resume.lastname }}</h3>
+                                    </thead>
+                                    <tbody>
+                                        <p>{{  resume.resume  }}</p>
+                                    <tr><th>Data urodzenia:</th> <th>{{ resume.date_birth }}</th></tr>
+                                    <tr><th>E-mail:</th> <th>{{ resume.email }}</th></tr>
+                                    <tr><th>Strona internetowa:</th> <th>{{ resume.website }}</th></tr>
+                                    <tr><th>Prawo jazdy:</th> <th>{{ resume.driving_license }}</th></tr>
+                                    <tr><th>Zainteresowania:</th> <th>{{ resume.hobbies }}</th></tr>
+                                    </tbody>
+                                </table>
+
+                            </div>
+                            <div id="right">
+                                <img src="../../{{ resume.image }}" class="img-rounded" width=350px>
+                            </div>
+{#                            <div id="down">#}
+{#                                <p>{{ resume.website }}</p>#}
+{#                                <p>{{ resume.email }}</p>#}
+{#                            </div>#}
+                        </div>
+                    <a class="btn btn-default page-scroll" href="#education">Wykształcenie</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section id="education" class="education-section">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-12">
+                    <h1>Wykształcenie</h1>
+                    <div class="list-group">
+                    {% for step in education %}
+                        <div class="list-group-item">
+                            <div id="dates">
+                                <h1><span class="label label-info">{{ step.month_start }}.{{ step.year_start }}</span></h1>
+                                <h1><span class="label label-success">{{ step.month_end }}.{{ step.year_end }}</span></h1>
+                            </div>
+                            <div id="school-info">
+                            <h4 class="list-group-item-heading">{{ step.degree }}</h4>
+                            <h4 class="list-group-item">{{ step.school }}</h4>
+                            </div>
+                            <div id="down">
+                            <h4 class="list-group-item">{{ step.field }} spec. <strong>{{ step.speciality }}</strong></h4>
+                            <p class="list-group-item">Temat pracy: <strong>{{ step.thesis }}</strong></p>
+                            <p class="list-group-item-success">Status: {{ step.status }}</p>
+                            </div>
+                        </div>
+                    {% endfor %}
+                    </div>
+                    <div id="down">
+                        <a class="btn btn-default page-scroll" href="#experience">Doświadczenie zawodowe</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Services Section -->
+    <section id="experience" class="experience-section">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-12">
+                    <h1>Doświadczenie</h1>
+                     <div class="list-group">
+                    {% for step in experience %}
+                        <div class="list-group-item">
+                            <div id="dates">
+                                <h1><span class="label label-info">{{ step.start_month }}.{{ step.start_year }}</span></h1>
+                                <h1><span class="label label-success">{{ step.end_month }}.{{ step.end_year }}</span></h1>
+                            </div>
+                            <div id="school-info">
+                            <h4 class="list-group-item-heading">{{ step.title }}</h4>
+                            <h3 class="list-group-item">{{ step.enterprise }}</h3>
+                            </div>
+                            <div id="down">
+                                {% for item in responsibilities %}
+                                    {% if forloop.counter == forloop.parentloop.counter %}
+                                        {% for element in item %}
+                                            <p class="list-group-item">&#8226 {{ element }}</p>
+                                        {% endfor %}
+                                    {% endif %}
+                                {% endfor %}
+                            </div>
+                        </div>
+                    {% endfor %}
+                    </div>
+                     <a class="btn btn-default page-scroll" href="#skills">Umiejętności</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="skills" class="skills-section">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-12">
+                    <h1>Umiejętności</h1>
+                    <div class="panel panel-default"
+                        <div class="panel-body">
+                            <div id="program">
+                                <h2>Programowanie</h2>
+                                {% for item in programming %}
+{#                                <p>{{ item.skill }}</p>#}
+                                <div class="progress">
+                                    <div class="progress-bar progress-bar-success" aria-valuemin="0" aria-valuemax="5" aria-valuenow="{{ item.level }}", role="progressbar", style="width:{{ item.level }}%"><p>{{ item.skill }}</p></div>
+                                </div>
+                                {% endfor %}
+                            </div>
+                            <div id="professional">
+                                <h2>Zawodowe</h2>
+                                {% for item in professional %}
+{#                                <p>{{ item.skill }}</p>#}
+                                <div class="progress">
+                                    <div class="progress-bar progress-bar-danger" aria-valuemin="0" aria-valuemax="5" aria-valuenow="{{ item.level }}", role="progressbar", style="width:{{ item.level }}%">{{ item.skill }}</div>
+                                </div>
+                                {% endfor %}
+                            </div>
+                            <div id="other">
+                                <h2>Inne</h2>
+                                {% for item in other %}
+{#                                <p>{{ item.skill }}</p>#}
+                                <div class="progress">
+                                    <div class="progress-bar progress-bar-info" aria-valuemin="0" aria-valuemax="5" aria-valuenow="{{ item.level }}", role="progressbar", style="width:{{ item.level }}%">{{ item.skill }}</div>
+                                </div>
+                                {% endfor %}
+                            </div>
+                        </div>
+                        <div id="down">
+                        <a class="btn btn-default page-scroll" href="#contact">Kontakt</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="contact" class="contact-section">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-12">
+                    <h1>Kontakt</h1>
+                    <form role="form" action="" method="post">
+                        {% csrf_token %}
+                        {{ form.as_p }}
+                        <button type="submit">Wyślij</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- jQuery -->
+    <script src="../static/js/jquery.js"></script>
+
+    <!-- Bootstrap Core JavaScript -->
+    <script src="../static/js/bootstrap.min.js"></script>
+
+    <!-- Scrolling Nav JavaScript -->
+    <script src="../static/js/jquery.easing.min.js"></script>
+    <script src="../static/js/scrolling-nav.js"></script>
+
+</body>
+
+</html>

@@ -1,0 +1,45 @@
+#left {
+    float: left;
+    width: 60%;
+}
+#right {
+    float: right;
+    width: 40%;
+    padding: 2%;
+}
+#down{
+    clear: both;
+}
+#program {
+    float: left;
+    width: 33%;
+    padding: 5%;
+    /*display: inline-block;*/
+}
+#professional {
+    float: left;
+    width: 33%;
+    padding: 5%;
+    /*padding-left: 5%;*/
+    /*display: inline-block;*/
+}
+#other {
+    float: right;
+    width: 33%;
+    padding: 5%;
+    /*display: inline-block;*/
+}
+#edu {
+    float: left;
+    width: 50%;
+    /*padding: 5%;*/
+}
+#dates {
+    float: left;
+    width: 20%;
+}
+#school-info {
+    float: right;
+    width: 70%;
+    padding: 5%;
+}
