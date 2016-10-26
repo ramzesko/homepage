@@ -142,6 +142,6 @@ EMAIL_BACKEND ='django.core.mail.backends.console.EmailBackend'
 DEFAULT_FROM_EMAIL = 'testing@example.com'
 EMAIL_HOST = 'smtp.sendgrid.net'
 EMAIL_HOST_USER = 'wektor'
-EMAIL_HOST_PASSWORD = 'veatficiles1'
+EMAIL_HOST_PASSWORD = 
 EMAIL_USE_TLS = True
 EMAIL_PORT = 587
